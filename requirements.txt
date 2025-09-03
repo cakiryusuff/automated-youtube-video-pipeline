@@ -1,0 +1,12 @@
+pyyaml
+requests
+python-dotenv
+beautifulsoup4
+elevenlabs
+google-api-python-client
+google-auth-oauthlib 
+google-auth-httplib2
+google-cloud-storage
+pydantic-ai
+pytest
+openai

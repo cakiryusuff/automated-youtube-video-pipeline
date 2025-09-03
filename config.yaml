@@ -1,0 +1,5 @@
+artifacts_dir: artifacts
+audio_file: artifacts/output.mp3
+video_file: artifacts/final_video.mp4
+client_secret_file: client_secret.json
+bucket_name: ai-audio-bucket

@@ -1,0 +1,12 @@
+artifacts/*
+logs/*
+__pycache__/
+__pycache__/*
+.env/
+.env
+venv/
+youtube_api_project.egg-info/
+client_secret.json
+.DS_Store
+servacc_private_key.json
+youtube_token.pickle
