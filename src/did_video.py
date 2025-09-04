@@ -74,6 +74,6 @@ if __name__ == "__main__":
 
     audio_file_url = "https://storage.googleapis.com/ai-audio-bucket/output1.mp3"
 
-    # video_id = generator.create_video(source_image, audio_file_url)
-    video_url = generator.wait_for_video("tlk_x1Sr9Cx9RR3oBOTf2ePFm")
+    video_id = generator.create_video(audio_file_url)
+    video_url = generator.wait_for_video(video_id)
     print("Video URL:", video_url)

@@ -19,7 +19,7 @@ class ElevenLabsTTS:
     def text_to_speech(
         self,
         text: str,
-        voice_id: str = "lxZLq5dcyw12UangGJgN",
+        voice_id: str = "aEJD8mYP0nuof1XHShVY",
         model_id: str = "eleven_multilingual_v2",
         output_format: str = "mp3_44100_128",
         filename: str = "output.mp3"

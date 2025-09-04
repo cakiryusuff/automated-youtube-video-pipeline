@@ -27,6 +27,7 @@ class CreditTracker:
             response = requests.get(self.did_url, headers=self.did_url_headers)
             response.raise_for_status()
             data = response.json()
+            print(data)
             credits = data.get("remaining", 0)
             self.logger.info(f"D-ID available credits: {credits}")
             return credits
@@ -56,4 +57,5 @@ class CreditTracker:
         
 if __name__ == "__main__":
     credit_tracker = CreditTracker()
-    credit_tracker.save_to_db()
+    # credit_tracker.save_to_db()
+    credit_tracker.get_did_credits()

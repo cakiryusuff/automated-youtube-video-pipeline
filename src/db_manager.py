@@ -1,6 +1,6 @@
 import psycopg2
 from utils.common_functions import load_config
-from logger import get_logger
+from src.logger import get_logger
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional, Dict, Tuple

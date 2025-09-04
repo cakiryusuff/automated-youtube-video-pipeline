@@ -24,10 +24,12 @@ check_agent = Agent(
 )
 
 async def text_editor(news_list: list[str]) -> str:
+    logger.info("Starting text editor...")
     for text in news_list:
         is_news = await check_agent.run(text)
         if is_news.output:
             edited_text = await editor_agent.run(text)
+            logger.info("Text edited successfully.")
             return edited_text.output
 
 if __name__ == "__main__":

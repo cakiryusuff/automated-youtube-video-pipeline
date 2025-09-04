@@ -10,3 +10,4 @@ client_secret.json
 .DS_Store
 servacc_private_key.json
 youtube_token.pickle
+config/
