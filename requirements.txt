@@ -10,3 +10,4 @@ google-cloud-storage
 pydantic-ai
 pytest
 openai
+psycopg2

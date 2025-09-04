@@ -4,24 +4,25 @@ from src.did_video import DIDVideoGenerator
 from src.gcs_uploader import GCSUploader
 from src.youtube_uploader import YouTubeUploader
 from src.text_editor import text_editor
+from src.credit_tracker import CreditTracker
+from src.logger import get_logger
 import asyncio
+import time
 
-from utils import download_video, load_config
+from utils.common_functions import download_video, load_config
 
 def main():
+    start_time = time.time()
+    logger = get_logger(__name__)
+    
+    logger.info("👌 Pipeline started.")
+    
     configs = load_config("config.yaml")
     
     news_fetcher = NewsFetcher()
     news = news_fetcher.fetch_news_content(news_count=2)
     
-    # for n in news:
-    #     print("**"*20)
-    #     print(n)
-    # print("**"*20)
-    
     edited_news = asyncio.run(text_editor(news))
-
-    # print(f"Edited News: {edited_news}")
 
     tts_client = ElevenLabsTTS()
     audio_file = tts_client.text_to_speech(
@@ -35,6 +36,9 @@ def main():
     did_client = DIDVideoGenerator()
     video_id = did_client.create_video(audio_url=public_url)
     created_url = did_client.wait_for_video(video_id)
+    
+    credit_tracker = CreditTracker()
+    credit_tracker.save_to_db()
 
     download_video(created_url, configs["video_file"])
 
@@ -42,7 +46,10 @@ def main():
     youtube_uploader.authenticate()
     youtube_uploader.upload_video(file_path=configs["video_file"], title="Test video yuklenio", description="Description of uploaded video.")
     
-    print("Process completed successfully.")
+    end = time.time()
+    print(f"Process completed successfully. Time taken: {end - start_time} seconds")
+    logger.info(f"👌 Pipeline completed successfully. Time taken: {end - start_time} seconds")
+
     
 if __name__ == "__main__":
     main()

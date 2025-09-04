@@ -20,15 +20,6 @@ class DIDVideoGenerator:
         }
 
     def create_video(self, audio_url: str, fluent: bool = False) -> str:
-        """_summary_
-
-        Args:
-            audio_url (_type_): _description_. Public URL of the audio file
-            fluent (bool, optional): _description_. Defaults to False.
-
-        Returns:
-            str: video_id of created video
-        """
         try:
             logger.info("Creating video with DID API")
             payload = {
