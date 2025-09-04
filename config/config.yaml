@@ -8,11 +8,11 @@ database:
   host: localhost
   port: 5432
   user: postgres
-  password: 0jpugnwz0
+  password: password
   dbname: youtube_pipeline
 
 smtp_server:
   host: smtp.gmail.com
   port: 587
   sender: ckryusuff3@gmail.com
-  password: bynmrgbzrzkvsivy # app password get from google
+  password: password # app password get from google
